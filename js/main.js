@@ -47,6 +47,8 @@ jQuery(document).ready(function($) {
 
 	version.init();
 
+    speech.init();
+
 	time.init();
 
 	calendar.init();

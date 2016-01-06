@@ -63,13 +63,13 @@ calendar.updateData = function (callback) {
 				}
 				e.seconds = seconds;
 			}
-			
+
 			// Special handling for rrule events
 			if (e.RRULE) {
 				var options = new RRule.parseString(e.RRULE);
 				options.dtstart = e.startDate;
 				var rule = new RRule(options);
-				
+
 				// TODO: don't use fixed end date here, use something like now() + 1 year
 				var dates = rule.between(new Date(), new Date(2016,11,31), true, function (date, i){return i < 10});
 				for (date in dates) {
@@ -84,7 +84,7 @@ calendar.updateData = function (callback) {
 							var time_string = moment(dt).calendar()
 						}
 						this.eventList.push({'description':e.SUMMARY,'seconds':seconds,'days':time_string});
-					}           
+					}
 				}
 			}
 		};

@@ -83,7 +83,8 @@ news.parseFeed = function (data) {
 
 	for (var i = 0, count = data.length; i < count; i++) {
 
-		_rssItems.push(data[i].title);
+        // _rssItems.push(data[i].title);
+		_rssItems.push(data[i].title+'<div class="desc xxsmall">'+data[i].description+"</div>");
 
 	}
 
