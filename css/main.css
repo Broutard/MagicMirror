@@ -205,6 +205,22 @@ body, html {
     font-family: "HelveticaNeue-Light";
 }
 
+#speech {
+    display: none;
+    z-index: 2;
+    font-size: 40px;
+    letter-spacing: 0;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    animation: pulsate 2s infinite;
+}
+
+@keyframes pulsate {
+    0%   { color: rgba(255, 255, 255, 1); }
+    50%  { color: rgba(255, 255, 255, 0); }
+    100% { color: rgba(255, 255, 255, 1); }
+}
 @font-face {
   font-family: 'HelveticaNeue-UltraLight';
   src: url('font/HelveticaNeue-UltraLight.eot'); /* IE9 Compat Modes */

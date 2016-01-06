@@ -4,6 +4,7 @@
 	<style type="text/css">
 		<?php include('css/main.css') ?>
 	</style>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="css/weather-icons.css">
 	<script type="text/javascript">
 		var gitHash = '<?php echo trim(`git rev-parse HEAD`) ?>';
@@ -12,6 +13,7 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
+    <div id="speech"><i class="fa fa-microphone"></i></div>
 
 	<div class="top left"><div class="date small dimmed"></div><div class="time"></div><div class="calendar xxsmall"></div></div>
 	<div class="top right"><div class="windsun small dimmed"></div><div class="temp"></div><div class="forecast small dimmed"></div></div>
