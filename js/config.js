@@ -47,8 +47,19 @@ var config = {
         masterCommand: 'jarvis',
         // your commands
         commands: {
-            'test': function() {
-                console.log('TEST');
+            'stop news': function() {
+                $('.bottom').hide();
+            },
+            'refresh': function() {
+                location.reload();
+            },
+            'news korben': function() {
+                // TODO: reset news setTimeout
+                news.feed = 'http://korben.info/feed';
+                news.init();
+            },
+            'aide': function() {
+                speech.help();
             }
         }
     }

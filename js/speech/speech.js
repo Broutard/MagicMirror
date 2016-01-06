@@ -1,6 +1,6 @@
 var speech = {
     lang: config.speech.lang || 'en-US',
-    masterCommand: config.speech.masterCommand || false,
+    masterCommand: config.speech.masterCommand || '',
     masterCommandDelay: config.speech.masterCommandDelay || 10000,
     commands: config.speech.commands || null,
     intervalStartId: null
@@ -8,31 +8,40 @@ var speech = {
 
 
 speech.listenSubCommands = function (commands) {
-    var commandsNames = $.map(commands, function(value, key) {
-        return key;
-    });
-    var stopListenning = function() {
-        console.log('stopListenning');
-        $('#speech').hide();
-        annyang.removeCommands(commandsNames);
-    }
+    if(!this.masterCommandListenning) {
+        var commandsNames = $.map(commands, function(value, key) {
+            return key;
+        });
+        var stopListenning = function() {
+            $('#speech').hide();
+            this.masterCommandListenning = false;
+            annyang.removeCommands(commandsNames);
+        }.bind(this);
 
-    $('#speech').show();
-    annyang.addCommands(commands);
+        $('#speech').show();
+        this.masterCommandListenning = true;
+        annyang.addCommands(commands);
 
-    // stop listenning is a sub-command match
-    annyang.addCallback('resultMatch', function(txt,cmd) {
-        if(cmd!=speech.masterCommand) {
+        // stop listenning if a sub-command match
+        annyang.addCallback('resultMatch', function(txt,cmd) {
+            if(cmd!=speech.masterCommand) {
+                stopListenning();
+            }
+        });
+
+        // stop listenning after masterCommandDelay
+        setTimeout(function () {
             stopListenning();
-        }
-    });
-
-    // stop listenning after masterCommandDelay
-    setTimeout(function () {
-        stopListenning();
-    }, this.masterCommandDelay)
+        }, this.masterCommandDelay)
+    }
 }
 
+speech.help = function () {
+    var commands = $.map(speech.commands, function(value, key) {
+        return key;
+    });
+    $('#speech-help').html('<b>'+speech.masterCommand+"</b><hr>"+commands.join('<br>')).show(0).delay(5000).hide(0);
+}
 
 speech.init = function () {
 
