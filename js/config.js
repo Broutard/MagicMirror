@@ -41,17 +41,14 @@ var config = {
         interval: 10000
     },
     speech: {
+        // https://github.com/TalAter/annyang/blob/master/docs/README.md#languages
         lang: 'fr-FR',
+        // if you want a master-command before any others commands, you can set it here
+        masterCommand: 'jarvis',
+        // your commands
         commands: {
-            'stop': function() {
-              annyang.abort();
-            },
-            'debug': function() {
-                console.log('DEBUG ON');
-                annyang.debug();
-            },
-            'jarvis': function() {
-
+            'test': function() {
+                console.log('TEST');
             }
         }
     }
