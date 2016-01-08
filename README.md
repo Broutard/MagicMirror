@@ -50,3 +50,22 @@ Takes the user's inserted location, language, unit type, and OpenWeatherMap API 
 
 **Current features:** FRITZ!Box Callmonitor <br>
 **Future features:** Faceregognition, personalized views, online banking through HBCI and multiple calenders based on faceregognition.
+
+
+
+## New in this fork
+
+###[Speech Recognition](js/speech)
+
+Speech Recognition in Javascript (check [your browser compatibility](http://caniuse.com/#search=speech)) with [annyang](https://github.com/TalAter/annyang)
+
+Configuration :
+- `lang`
+- `masterCommand` you can set a word to trigger the recognition (default: '')
+- `masterCommandDelay` time after listening will be stopped after the masterCommand
+- `commands` list of your commands with a callback function
+- `enableQuickMasterCommand` if true, you can string your masterCommand and a "sub-command" without doing any pause (default: true)
+
+
+
+
