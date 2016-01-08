@@ -55,8 +55,8 @@ jQuery(document).ready(function($) {
 
 	compliments.init();
 
-    news.init();
+    // news.init();
 
-	weather.init();
+	// weather.init();
 
 });

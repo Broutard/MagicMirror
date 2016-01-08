@@ -128,7 +128,6 @@ news.showNews = function () {
 	$(this.newsLocation).updateWithText(_item, this.fadeInterval);
 
 	return true;
-
 }
 
 news.init = function () {

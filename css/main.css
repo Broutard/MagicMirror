@@ -213,7 +213,7 @@ body, html {
 
 #speech {
     display: none;
-    z-index: 2;
+    z-index: 9;
     font-size: 40px;
     letter-spacing: 0;
     position: absolute;
@@ -221,9 +221,9 @@ body, html {
     right: 8px;
     animation: pulsate 2s infinite;
 }
-#speech-help {
+#layer{
     display: none;
-    z-index: 9;
+    z-index: 2;
     position: absolute;
     background-color: #000;
     padding: 30px;
@@ -231,6 +231,9 @@ body, html {
     letter-spacing: 0;
     width: 100%;
     height: 100%;
+}
+#speech-help {
+
 }
 
 @keyframes pulsate {

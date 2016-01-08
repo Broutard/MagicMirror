@@ -37,8 +37,8 @@ var config = {
         url: "https://calendar.google.com/calendar/ical/uf5c94l57p3bhtsmfkou2hpb9o%40group.calendar.google.com/private-24c7e6fde675fa7bb05ad62d9dd4e616/basic.ics"
     },
     news: {
-        feed: 'https://fr.news.yahoo.com/rss/france',
-        interval: 10000
+        feed: 'http://korben.info/feed',
+        //updateInterval: 500000
     },
     speech: {
         // https://github.com/TalAter/annyang/blob/master/docs/README.md#languages
@@ -47,6 +47,12 @@ var config = {
         masterCommand: 'jarvis',
         // your commands
         commands: {
+            'dashboard': function() {
+                $('#layer').hide().empty();
+            },
+            'retour': function() {
+                $('#layer').hide().empty();
+            },
             'stop news': function() {
                 $('.bottom').hide();
             },
@@ -60,7 +66,13 @@ var config = {
             },
             'aide': function() {
                 speech.help();
-            }
+            },
+            'recette de *mots': function(w) {
+                speech.recipe(w);
+            },
+            'recette *mots': function(w) {
+                speech.recipe(w);
+            },
         }
     }
 }
